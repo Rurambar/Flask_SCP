@@ -36,5 +36,9 @@ def create_app(test_config=None):
     app.register_blueprint(blog.bp)
     app.add_url_rule('/', endpoint='index')
 
+    from . import manger
+    manger.updateDB(app)
+    manger.getFiles(app)
+
     return app
 
